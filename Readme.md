@@ -1,10 +1,10 @@
-## Keepr
+## Baalmy
 
-Keepr is a social network that allows users to visually share, and discover new interests by posting (known as 'keeping' on Keepr) images or videos to their own or others' collections (i.e. a collection of 'vaults,' usually with a common theme) and browsing what other users have kept. 
+Baalmy is a social network that allows users to visually share, and discover new interests by posting (known as 'keeping' on Baalmy) images or videos to their own or others' collections (i.e. a collection of 'vaults,' usually with a common theme) and browsing what other users have kept.
 
 ### The Setup
 
-Keepr is a typical project where some of the basic layouts have been thought up but it's still missing some key components. The basic idea here is to allow users to post items if they are logged in. They can also browse all of the items (aka keeps) that have been posted without having to login. If any user wants to store a reference to any paticular keep they will store it in the `vault` of their choice. 
+Baalmy is a typical project where some of the basic layouts have been thought up but it's still missing some key components. The basic idea here is to allow users to post items if they are logged in. They can also browse all of the items (aka keeps) that have been posted without having to login. If any user wants to store a reference to any paticular keep they will store it in the `vault` of their choice. 
 
 We want to give the users the opportunity to click on the keep icon for any post and have a list of their vaults appear. Selecting the vault should create a reference to that post and the users vault.
 
@@ -12,7 +12,7 @@ Vaults themselves are relatively simple... They only require a name and a descri
 
 For example I may really like game art and thus I would be a user who creates a vault named ***Sweet Game Art*** I will then start saving the `keeps` I like into this vault.
 
-The server you are using is a dotnet server with MySqlServer and Dapper. The user auth routes have already been created but you will be in charge of actually creating a user login/register form. 
+The server you are using is a dotnet server with MySqlServer and Dapper. The user auth routes have already been created but you will be in charge of actually creating a user login/register form.
 
 ### Step 1 -  Where is the output?
 
@@ -73,14 +73,14 @@ This happens because of a change to the **www/config/index.js** changing the bui
 ### Some inspirational mocks
 
 <div style="text-align:center">
-	<img src="keepr-example.jpg" style="width: 80%">
+	<img src="baalmy-example.jpg" style="width: 80%">
 	<hr/>
-	<img src="keepr-signin.jpg" style="width: 80%">
+	<img src="baalmy-signin.jpg" style="width: 80%">
 	<hr/>
-	<img src="keepr-keep-dashboard.jpg" style="width: 80%">
+	<img src="baalmy-keep-dashboard.jpg" style="width: 80%">
 	<hr/
 	>
-	<img src="keepr-vault-dashboard.jpg" style="width: 80%">
+	<img src="baalmy-vault-dashboard.jpg" style="width: 80%">
 </div>
 
 ### Good Luck and Have Fun! 
