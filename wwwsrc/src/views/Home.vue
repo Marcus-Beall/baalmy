@@ -1,17 +1,20 @@
 <template>
-  <div class="home">
-    <h1>Welcome Home</h1>
-  </div>
+  <q-page class="flex flex-center">
+    <img alt="Quasar logo" src="../assets/logo.png">
+  </q-page>
 </template>
+
+<style>
+</style>
 
 <script>
   export default {
-    name: "home",
+    name: 'PageHome',
     mounted() {
       //blocks users not logged in
       if (!this.$store.state.user.id) {
         this.$router.push({ name: "login" });
       }
     }
-  };
+  }
 </script>
