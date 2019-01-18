@@ -2,10 +2,10 @@ using System;
 using System.Data;
 using System.Linq;
 using BCrypt.Net;
-using keepr.Models;
+using baalmy.Models;
 using Dapper;
 
-namespace keepr.Repositories
+namespace baalmy.Repositories
 {
   public class MysteriesRepository
   {

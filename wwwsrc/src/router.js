@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// @ts-ignore
 import DefaultLayout from './layouts/Default.vue'
+// @ts-ignore
 import Home from './views/Home.vue'
+// @ts-ignore
 import About from './views/About.vue'
 
 Vue.use(Router)

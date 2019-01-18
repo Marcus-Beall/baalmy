@@ -7,7 +7,7 @@
 --     UNIQUE KEY email (email)
 -- );
 
--- CREATE TABLE vaults (
+-- CREATE TABLE mysteries (
 --     id int NOT NULL AUTO_INCREMENT,
 --     name VARCHAR(20) NOT NULL,
 --     description VARCHAR(255) NOT NULL,
@@ -19,7 +19,7 @@
 --     PRIMARY KEY (id)
 -- );
 
--- CREATE TABLE keeps (
+-- CREATE TABLE secrets (
 --     id int NOT NULL AUTO_INCREMENT,
 --     name VARCHAR(20) NOT NULL,
 --     description VARCHAR(255) NOT NULL,
@@ -28,7 +28,7 @@
 --     isPrivate TINYINT,
 --     views INT DEFAULT 0,
 --     shares INT DEFAULT 0,
---     keeps INT DEFAULT 0,
+--     secrets INT DEFAULT 0,
 --     INDEX userId (userId),
 --     FOREIGN KEY (userId)
 --         REFERENCES users(id)
@@ -36,26 +36,26 @@
 --     PRIMARY KEY (id)
 -- );
 
--- CREATE TABLE vaultkeeps (
+-- CREATE TABLE mysterysecrets (
 --     id int NOT NULL AUTO_INCREMENT,
---     vaultId int NOT NULL,
---     keepId int NOT NULL,
+--     mysteryId int NOT NULL,
+--     secretId int NOT NULL,
 --     userId VARCHAR(255) NOT NULL,
 
 --     PRIMARY KEY (id),
---     INDEX (vaultId, keepId),
+--     INDEX (mysteryId, secretId),
 --     INDEX (userId),
 
 --     FOREIGN KEY (userId)
 --         REFERENCES users(id)
 --         ON DELETE CASCADE,
 
---     FOREIGN KEY (vaultId)
---         REFERENCES vaults(id)
+--     FOREIGN KEY (mysteryId)
+--         REFERENCES mysteries(id)
 --         ON DELETE CASCADE,
 
---     FOREIGN KEY (keepId)
---         REFERENCES keeps(id)
+--     FOREIGN KEY (secretId)
+--         REFERENCES secrets(id)
 --         ON DELETE CASCADE
 -- )
 
