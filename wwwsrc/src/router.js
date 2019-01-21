@@ -6,8 +6,6 @@ import DefaultLayout from './layouts/Default.vue'
 import Home from './views/Home.vue'
 // @ts-ignore
 import About from './views/About.vue'
-// @ts-ignore
-import Login from './views/Login.vue'
 
 Vue.use(Router)
 
@@ -26,11 +24,6 @@ export default new Router({
           path: '/about',
           name: 'about',
           component: About
-        },
-        {
-          path: '/login',
-          name: 'login',
-          component: Login
         }
       ]
     }

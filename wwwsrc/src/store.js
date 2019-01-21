@@ -24,6 +24,7 @@ export default new Vuex.Store({
   mutations: {
     setUser(state, user) {
       state.user = user
+      console.log(user)
     }
   },
   actions: {
@@ -41,20 +42,32 @@ export default new Vuex.Store({
       auth.get('authenticate')
         .then(res => {
           commit('setUser', res.data)
-          router.push({ name: 'home' })
-        })
-        .catch(e => {
-          console.log('not authenticated')
         })
     },
     login({ commit, dispatch }, creds) {
       auth.post('login', creds)
         .then(res => {
           commit('setUser', res.data)
+          console.log(res.data)
           router.push({ name: 'home' })
         })
         .catch(e => {
           console.log('Login Failed')
+        })
+    },
+    logout({ commit, dispatch }, user) {
+      auth.delete('logout')
+        .then(res => {
+          commit('setUser', user),
+            router.push({ name: 'home' })
+        }
+        )
+    },
+    getMysteries({ commit, dispatch }, user) {
+      api.get('mysteries' + user._id)
+        .then(res => {
+          commit('setMysteries', res.data)
+          router.push({ name: 'home' })
         })
     }
   }
