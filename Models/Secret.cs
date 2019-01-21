@@ -1,6 +1,6 @@
 namespace baalmy.Models
 {
-  class Secret
+  public class Secret
   {
     public int Id { get; set; }
     public string Name { get; set; }

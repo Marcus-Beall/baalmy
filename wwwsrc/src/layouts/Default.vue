@@ -1,19 +1,8 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-layout-header>
-      <q-toolbar
-        color="primary"
-        :glossy="$q.theme === 'mat'"
-        :inverted="$q.theme === 'ios'"
-      >
-        <q-btn
-          flat
-          dense
-          round
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          aria-label="Menu"
-          icon="menu"
-        />
+      <q-toolbar color="primary" :glossy="$q.theme === 'mat'" :inverted="$q.theme === 'ios'">
+        <q-btn flat dense round @click="leftDrawerOpen = !leftDrawerOpen" aria-label="Menu" icon="menu" />
 
         <q-toolbar-title>
           Quasar App
@@ -22,15 +11,8 @@
       </q-toolbar>
     </q-layout-header>
 
-    <q-layout-drawer
-      v-model="leftDrawerOpen"
-      :content-class="$q.theme === 'mat' ? 'bg-grey-2' : null"
-    >
-      <q-list
-        no-border
-        link
-        inset-delimiter
-      >
+    <q-layout-drawer v-model="leftDrawerOpen" :content-class="$q.theme === 'mat' ? 'bg-grey-2' : null">
+      <q-list no-border link inset-delimiter>
         <q-list no-border link inset-delimiter>
           <q-list-header>Navigation</q-list-header>
           <q-item to="/" exact>
@@ -71,19 +53,19 @@
 </template>
 
 <script>
-import { openURL } from 'quasar'
+  import { openURL } from 'quasar'
 
-export default {
-  name: 'LayoutDefault',
-  data () {
-    return {
-      leftDrawerOpen: this.$q.platform.is.desktop
+  export default {
+    name: 'LayoutDefault',
+    data() {
+      return {
+        leftDrawerOpen: false
+      }
+    },
+    methods: {
+      openURL
     }
-  },
-  methods: {
-    openURL
   }
-}
 </script>
 
 <style>

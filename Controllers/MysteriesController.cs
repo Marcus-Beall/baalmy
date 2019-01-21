@@ -10,29 +10,24 @@ namespace baalmy.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  class SecretsController : ControllerBase
+  class MysteriesController : ControllerBase
   {
-    private readonly LibraryRepository _repo;
+    private readonly MysteriesRepository _repo;
 
-    public LibrarysController(LibraryRepository repo)
+    public MysteriesController(MysteriesRepository repo)
     {
       _repo = repo;
     }
     [HttpGet("{id}")]
-    public ActionResult<IEnumerable<Secret>> Get(string id)
+    public ActionResult<IEnumerable<Mystery>> Get(string id)
     {
-      Secret answer = _repo.GetForUser(id);
-      if (answer != null)
-      {
-        return Ok(answer);
-      }
-      return BadRequest();
+      return Ok(_repo.GetForUser(id));
     }
     [HttpPost]
-    public ActionResult<Secret> Post([FromBody] Secret value)
+    public ActionResult<Mystery> Post([FromBody] Mystery value)
     {
-      Secret answer = _repo.CreateMystery(value);
-      return Created("/api/secret/" + answer.Id, answer);
+      Mystery answer = _repo.CreateMystery(value);
+      return Created("/api/mystery/" + answer.Id, answer);
     }
   }
 }
