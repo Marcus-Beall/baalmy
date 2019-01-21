@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="bg-secondary" style="font-family: 'Oregano', cursive;">
+  <div id="app" class="bg-secondary text-dark" style="font-family: 'Oregano', cursive;">
     <router-view />
   </div>
 </template>

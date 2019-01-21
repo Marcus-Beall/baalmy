@@ -1,16 +1,17 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lHh Lpr lFf" class="text-tertiary">
     <q-layout-header>
-      <q-toolbar color="primary" :inverted="$q.theme === 'ios'">
 
+      <q-toolbar color="primary" :inverted="$q.theme === 'ios'">
+        <div class="text-center text-light absolute-middle">Baa'l's Mystery Emporium</div>
         <!-- <q-btn flat dense round @click="leftDrawerOpen = !leftDrawerOpen" aria-label="Menu" icon="menu" /> -->
 
-        <q-toolbar-title>
-          BAA'LMY
-          <div slot="subtitle">Baa'l's Mystery Emporium</div>
+        <q-toolbar-title class=" row justify-center absolute-center">
+          <h4 class="col-12 text-light text-center">BAA'LMY</h4>
+
         </q-toolbar-title>
         <router-link v-if="user.id" :to="{name: 'home'}">
-          <q-btn flat class="absolute-right" label="Logout" style="color:white" @click="logout" />
+          <q-btn flat class="absolute-right text-light" label="Logout" style="color:white" @click="logout" />
         </router-link>
         <q-btn v-else flat label="Login" style="color:white" class="absolute-right" @click="opened=true" />
       </q-toolbar>
