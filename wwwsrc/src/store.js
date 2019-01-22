@@ -65,7 +65,7 @@ export default new Vuex.Store({
         )
     },
 
-    //MYSTERIES
+    //MYSTERIOUS STUFF
     getMysteries({ commit, dispatch }, user) {
       api.get('mysteries/' + user._id)
         .then(res => {
@@ -78,6 +78,16 @@ export default new Vuex.Store({
       api.post('mysteries', mystery)
         .then(res => {
           commit('setMysteries', res.data)
+        })
+    },
+
+
+    //SECRET STUFF
+    makeSecret({ commit, dispatch }, secret) {
+      console.log(secret)
+      api.post('secrets', secret)
+        .then(res => {
+          commit('setSecrets', res.data)
         })
     }
   }

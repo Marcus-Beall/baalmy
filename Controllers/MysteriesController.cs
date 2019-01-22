@@ -31,6 +31,9 @@ namespace baalmy.Controllers
       return Created("/api/mysteries" + answer.Id, answer);
     }
     [HttpPut]
-    public ActionResult<Mystery> Put()
+    public ActionResult<Mystery> Put([FromBody] Mystery val)
+    {
+      return Ok(_repo.ChangeMystery(val, val.Id));
+    }
   }
 }

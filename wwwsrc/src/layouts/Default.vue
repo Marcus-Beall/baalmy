@@ -118,8 +118,8 @@
               </q-toolbar-title>
             </q-toolbar>
 
-            <q-input class="col-12 q-my-md" float-label="Name" v-model="newSecret.name" />
-            <q-input class="col-12 q-my-md" float-label="Desxription" v-model="newSecret.description" />
+            <q-input class="col-12 q-my-md" float-label="Name" v-model="newSecret.Name" />
+            <q-input class="col-12 q-my-md" float-label="Description" v-model="newSecret.Description" />
             <q-btn class="col-12 q-my-xl" @click.prevent="createSecret" label="Create" />
 
           </form>
@@ -159,8 +159,8 @@
           Description: ""
         },
         newSecret: {
-          name: "",
-          description: ""
+          Name: "",
+          Description: ""
         }
       }
     },
@@ -186,6 +186,10 @@
       createMystery() {
         this.newMystery.UserId = this.user.id
         this.$store.dispatch('makeMystery', this.newMystery)
+      },
+      createSecret() {
+        this.newSecret.UserId = this.user.id
+        this.$store.dispatch('makeSecret', this.newSecret)
       }
     },
     components: {

@@ -10,7 +10,7 @@ namespace baalmy.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  class SecretsController : ControllerBase
+  public class SecretsController : ControllerBase
   {
     private readonly SecretsRepository _repo;
 
@@ -28,6 +28,11 @@ namespace baalmy.Controllers
     {
       Secret answer = _repo.CreateSecret(value);
       return Created("/api/secret/" + answer.Id, answer);
+    }
+    [HttpPut]
+    public ActionResult<Secret> Put([FromBody] Secret val)
+    {
+      return Ok(_repo.ChangeSecret(val.Id, val));
     }
   }
 }
