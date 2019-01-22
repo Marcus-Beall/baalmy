@@ -19,12 +19,21 @@ let api = Axios.create({
 
 export default new Vuex.Store({
   state: {
-    user: {}
+    user: {},
+    mysteries: [],
+    secrets: []
   },
   mutations: {
     setUser(state, user) {
       state.user = user
       console.log(user)
+    },
+    setMysteries(state, mysteries) {
+      state.mysteries = mysteries
+      console.log(mysteries)
+    },
+    setSecrets(state, secrets) {
+      state.secrets = secrets
     }
   },
   actions: {
@@ -67,7 +76,7 @@ export default new Vuex.Store({
 
     //MYSTERIOUS STUFF
     getMysteries({ commit, dispatch }, user) {
-      api.get('mysteries/' + user._id)
+      api.get('mysteries/' + user.id)
         .then(res => {
           commit('setMysteries', res.data)
           router.push({ name: 'home' })
@@ -77,15 +86,21 @@ export default new Vuex.Store({
       console.log(mystery)
       api.post('mysteries', mystery)
         .then(res => {
+          console.log(res.data)
           commit('setMysteries', res.data)
         })
     },
-
 
     //SECRET STUFF
     makeSecret({ commit, dispatch }, secret) {
       console.log(secret)
       api.post('secrets', secret)
+        .then(res => {
+          commit('setSecrets', res.data)
+        })
+    },
+    getSecrets({ commit, dispatch }, user) {
+      api.get('secrets', user.id)
         .then(res => {
           commit('setSecrets', res.data)
         })

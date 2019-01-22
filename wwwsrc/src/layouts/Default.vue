@@ -7,6 +7,7 @@
         <q-btn v-if="user.id" flat color="primary" class="justify-center" icon="fas fa-plus-square" @click="mysteryModal=true">
           <q-icon class="absolute-center" color="light" name="fas fa-plus-square" />
         </q-btn>
+        <q-btn flat color="light" label="Your Stuff" @click="onClick" />
 
         <!-- <q-btn flat dense round @click="leftDrawerOpen = !leftDrawerOpen" aria-label="Menu" icon="menu" /> -->
 
@@ -167,6 +168,9 @@
     computed: {
       user() {
         return this.$store.state.user
+      },
+      mysteries() {
+        return this.$store.state.mysteries
       }
     },
     methods: {
