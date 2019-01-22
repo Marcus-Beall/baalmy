@@ -15,15 +15,15 @@ namespace baalmy.Repositories
     {
       _db = db;
     }
-    public MysterySecret AddLibraryBook(MysterySecret lb)
+    public MysterySecret AddMysterySecret(MysterySecret val)
     {
       int id = _db.ExecuteScalar<int>(@"
-      INSERT INTO LibraryBooks(bookId, libraryId)
-      VALUES(@BookId, @LibraryId);
+      INSERT INTO mysterysecrets(mysteryId, secretId)
+      VALUES(@MysteryId, @SecretId);
       SELECT LAST_INSERT_ID();
-      ", lb);
-      lb.Id = id;
-      return lb;
+      ", val);
+      val.Id = id;
+      return val;
     }
     public Mystery CreateMystery(Mystery val)
     {

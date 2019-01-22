@@ -29,6 +29,23 @@ namespace baalmy.Repositories
       val.Id = id;
       return val;
     }
+    public Mystery ChangeMystery(Mystery val, int id)
+    {
+      try
+      {
+        return _db.QueryFirstOrDefault<Mystery>($@"
+UPDATE mysteries SET
+  Name = @Name,
+  Description = @Description
+  WHERE Id = @Id;
+SELECT * FROM mysteries WHERE id = @Id;", val);
+      }
+      catch (Exception ex)
+      {
+        Console.WriteLine(ex);
+        return null;
+      }
+    }
     public bool DeleteMystery(int id)
     {
       int success = _db.Execute(@"DELETE FROM mysteries WHERE id = @id", new { id });

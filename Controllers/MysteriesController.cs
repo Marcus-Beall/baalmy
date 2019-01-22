@@ -30,5 +30,7 @@ namespace baalmy.Controllers
       Mystery answer = _repo.CreateMystery(value);
       return Created("/api/mysteries" + answer.Id, answer);
     }
+    [HttpPut]
+    public ActionResult<Mystery> Put()
   }
 }
