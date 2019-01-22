@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <img alt="Quasar logo" src="../assets/baalhead.jpg">
+    <img class="absolute-center" alt="Quasar logo" src="../assets/baalhead.jpg">
   </q-page>
 </template>
 
@@ -10,7 +10,18 @@
 <script>
   export default {
     name: 'PageHome',
+    data() {
+      return {
+      }
+    },
     mounted() {
-    }
+    },
+    computed: {
+      user() {
+        return this.store.$state.user
+      }
+    },
+    methods: {
+    },
   }
 </script>

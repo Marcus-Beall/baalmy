@@ -28,6 +28,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    //AUTH
     register({ commit, dispatch }, newUser) {
       auth.post('register', newUser)
         .then(res => {
@@ -63,11 +64,20 @@ export default new Vuex.Store({
         }
         )
     },
+
+    //MYSTERIES
     getMysteries({ commit, dispatch }, user) {
-      api.get('mysteries' + user._id)
+      api.get('mysteries/' + user._id)
         .then(res => {
           commit('setMysteries', res.data)
           router.push({ name: 'home' })
+        })
+    },
+    makeMystery({ commit, dispatch }, mystery) {
+      console.log(mystery)
+      api.post('mysteries', mystery)
+        .then(res => {
+          commit('setMysteries', res.data)
         })
     }
   }

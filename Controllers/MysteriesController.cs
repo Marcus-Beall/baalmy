@@ -10,7 +10,7 @@ namespace baalmy.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  class MysteriesController : ControllerBase
+  public class MysteriesController : ControllerBase
   {
     private readonly MysteriesRepository _repo;
 
@@ -18,6 +18,7 @@ namespace baalmy.Controllers
     {
       _repo = repo;
     }
+
     [HttpGet("{id}")]
     public ActionResult<IEnumerable<Mystery>> Get(string id)
     {
@@ -27,7 +28,7 @@ namespace baalmy.Controllers
     public ActionResult<Mystery> Post([FromBody] Mystery value)
     {
       Mystery answer = _repo.CreateMystery(value);
-      return Created("/api/mystery/" + answer.Id, answer);
+      return Created("/api/mysteries" + answer.Id, answer);
     }
   }
 }

@@ -10,7 +10,7 @@ namespace baalmy.Repositories
 {
   public class MysteriesRepository
   {
-    public readonly IDbConnection _db;
+    private readonly IDbConnection _db;
     public MysteriesRepository(IDbConnection db)
     {
       _db = db;
@@ -22,7 +22,7 @@ namespace baalmy.Repositories
     public Mystery CreateMystery(Mystery val)
     {
       int id = _db.ExecuteScalar<int>(@"
-      INSERT INTO mysteries(name, description, userId)
+      INSERT INTO mysteries(name, description, userId) 
       VALUES(@Name, @Description, @UserId);
       SELECT LAST_INSERT_ID();
       ", val);

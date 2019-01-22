@@ -60,7 +60,8 @@ namespace baalmy
 
       services.AddTransient<IDbConnection>(x => CreateDBContext());
       services.AddTransient<UserRepository>();
-
+      services.AddTransient<MysteriesRepository>();
+      services.AddTransient<SecretsRepository>();
 
     }
 
