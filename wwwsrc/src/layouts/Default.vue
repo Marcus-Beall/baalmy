@@ -194,6 +194,9 @@
       createSecret() {
         this.newSecret.UserId = this.user.id
         this.$store.dispatch('makeSecret', this.newSecret)
+      },
+      getMysteries() {
+        this.$store.dispatch('getMysteries', this.user.id)
       }
     },
     components: {

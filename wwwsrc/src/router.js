@@ -5,7 +5,7 @@ import DefaultLayout from './layouts/Default.vue'
 // @ts-ignore
 import Home from './views/Home.vue'
 // @ts-ignore
-import About from './views/About.vue'
+import Profile from './views/Profile.vue'
 
 Vue.use(Router)
 
@@ -21,9 +21,9 @@ export default new Router({
           component: Home
         },
         {
-          path: '/about',
-          name: 'about',
-          component: About
+          path: '/profile',
+          name: 'profile',
+          component: Profile
         }
       ]
     }

@@ -21,7 +21,8 @@ export default new Vuex.Store({
   state: {
     user: {},
     mysteries: [],
-    secrets: []
+    secrets: [],
+    currentMystery: {}
   },
   mutations: {
     setUser(state, user) {
@@ -34,6 +35,9 @@ export default new Vuex.Store({
     },
     setSecrets(state, secrets) {
       state.secrets = secrets
+    },
+    setMystery(state, mystery) {
+      state.currentMystery = mystery
     }
   },
   actions: {
@@ -75,8 +79,8 @@ export default new Vuex.Store({
     },
 
     //MYSTERIOUS STUFF
-    getMysteries({ commit, dispatch }, user) {
-      api.get('mysteries/' + user.id)
+    getMysteries({ commit, dispatch }, userId) {
+      api.get('mysteries/' + userId)
         .then(res => {
           commit('setMysteries', res.data)
           router.push({ name: 'home' })
@@ -89,6 +93,10 @@ export default new Vuex.Store({
           console.log(res.data)
           commit('setMysteries', res.data)
         })
+    },
+    selectMystery({ commit, dispatch }, mystery) {
+      commit('setMystery', mystery)
+      router.push({ name: 'mystery' })
     },
 
     //SECRET STUFF
